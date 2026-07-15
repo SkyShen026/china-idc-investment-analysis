@@ -16,4 +16,7 @@
 
 ## 作者
 Sky Shen · 经济学 + 房地产/基础设施 + Data Science · CFA L1 in progress
-**🔗 姐妹项目**: [China REITs Analysis](https://github.com/SkyShen026/china-reits-analysis) — 下游"退出/持有"侧
+**🔗 姐妹项目 · 完整投资三部曲**:
+- 🏗️ **本项目** — 上游"新建"侧
+- 🏢 [China REITs Analysis](https://github.com/SkyShen026/china-reits-analysis) — 中游"退出"侧
+- 💸 [China LGFV Debt Risk](https://github.com/SkyShen026/china-lgfv-debt-risk) — 下游"债务风险"侧
