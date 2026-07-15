@@ -1,0 +1,39 @@
+{
+  "run_date": "2026-07-13",
+  "purpose": "验证各省级发改委页面可访问性，为电价抓取模块提供 fixture",
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+  "results": {
+    "北京": {
+      "url": "https://fgw.beijing.gov.cn/",
+      "status": 200,
+      "content_bytes": 68000,
+      "structure_extracted": true,
+      "policy_dir_found": "https://fgw.beijing.gov.cn/fgwzwgk/2024zcwj/",
+      "fixture": "beijing_drc_landing_20260713.md"
+    },
+    "上海": {
+      "url": "https://fgw.sh.gov.cn/",
+      "status": 200,
+      "content_bytes": 12000,
+      "structure_extracted": true,
+      "price_dir_found": "https://fgw.sh.gov.cn/fgw_jggl/",
+      "sample_price_notice": "https://fgw.sh.gov.cn/fgw_jggl/20260521/666d56f01c244cd281a3d11170710d12.html",
+      "fixture": "shanghai_drc_landing_20260713.md"
+    },
+    "宁夏": {
+      "url": "https://fzggw.nx.gov.cn/",
+      "status": 200,
+      "content_bytes": 3500,
+      "structure_extracted": true,
+      "note": "首页内容较少，需深入子路径",
+      "fixture": "ningxia_drc_landing_20260713.md"
+    },
+    "贵州": {"url": "https://fgw.guizhou.gov.cn/", "status": "empty_response", "note": "疑似 JS 渲染或反爬"},
+    "内蒙古": {"url": "https://fgw.nmg.gov.cn/", "status": "empty_response", "note": "同贵州"},
+    "甘肃": {"url": "https://fzgg.gansu.gov.cn/", "status": 403, "note": "直连被拒"},
+    "广东": {"url": "https://drc.gd.gov.cn/", "status": 403, "note": "直连被拒"},
+    "河北": {"url": "http://hbdrc.hebei.gov.cn/", "status": 403, "note": "直连被拒"}
+  },
+  "success_rate": "3/8 = 37.5%",
+  "recommendation": "生产环境建议：1) 真实浏览器 UA + IP 池；2) JS 渲染页面用 Playwright；3) 高价值省份手工维护 PDF/HTML 快照"
+}

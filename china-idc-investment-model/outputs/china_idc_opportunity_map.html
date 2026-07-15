@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e6f864789e04e0cd21afd202d12c1acf {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position: fixed; bottom: 30px; left: 30px;
+                background: white; padding: 10px 14px;
+                border: 1px solid #ccc; border-radius: 4px;
+                font-family: Arial; font-size: 12px; z-index: 9999;">
+        <b style="font-size: 13px;">综合投资评分</b><br>
+        <span style="color: #1a9850;">●</span> 80+ 强烈推荐<br>
+        <span style="color: #91cf60;">●</span> 65-80 推荐<br>
+        <span style="color: #fee08b;">●</span> 50-65 中性<br>
+        <span style="color: #fc8d59;">●</span> 35-50 谨慎<br>
+        <span style="color: #d73027;">●</span> &lt;35 不推荐
+    </div>
+    
+    
+            <div class="folium-map" id="map_e6f864789e04e0cd21afd202d12c1acf" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e6f864789e04e0cd21afd202d12c1acf = L.map(
+                "map_e6f864789e04e0cd21afd202d12c1acf",
+                {
+                    center: [35.0, 105.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 4,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6f051ac7c35ac335ac1fbcf07c6cd29f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6f051ac7c35ac335ac1fbcf07c6cd29f.addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+            var circle_marker_d54864497e4975be242f361268ab9bc9 = L.circleMarker(
+                [40.3792, 111.8228],
+                {"bubblingMouseEvents": true, "color": "#1a9850", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 17.456862848689774, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_ec946b04a41b61276ba40c34d65400a1 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_8bba7a31c9fa619747f156e4d9dca4cf = $(`<div id="html_8bba7a31c9fa619747f156e4d9dca4cf" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">和林格尔 (内蒙古)</h4>             <b>综合评分</b>: 94.6 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.320/kWh<br>             <b>政策节点</b>: 20<br>             <b>气候散热</b>: 10/10<br>             <b>距需求</b>: 500 km         </div>         </div>`)[0];
+                popup_ec946b04a41b61276ba40c34d65400a1.setContent(html_8bba7a31c9fa619747f156e4d9dca4cf);
+            
+        
+
+        circle_marker_d54864497e4975be242f361268ab9bc9.bindPopup(popup_ec946b04a41b61276ba40c34d65400a1)
+        ;
+
+        
+    
+    
+            circle_marker_d54864497e4975be242f361268ab9bc9.bindTooltip(
+                `<div>
+                     和林格尔: 95
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5152d541e4c7319769dd6d47fcf6d361 = L.circleMarker(
+                [37.5149, 105.1897],
+                {"bubblingMouseEvents": true, "color": "#1a9850", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.592948717948715, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_c3ca902698a3f72aed1bfa318684f4f1 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_bc1963e3f9c2761546f459d5a2732507 = $(`<div id="html_bc1963e3f9c2761546f459d5a2732507" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">中卫 (宁夏)</h4>             <b>综合评分</b>: 85.9 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.330/kWh<br>             <b>政策节点</b>: 20<br>             <b>气候散热</b>: 9/10<br>             <b>距需求</b>: 1200 km         </div>         </div>`)[0];
+                popup_c3ca902698a3f72aed1bfa318684f4f1.setContent(html_bc1963e3f9c2761546f459d5a2732507);
+            
+        
+
+        circle_marker_5152d541e4c7319769dd6d47fcf6d361.bindPopup(popup_c3ca902698a3f72aed1bfa318684f4f1)
+        ;
+
+        
+    
+    
+            circle_marker_5152d541e4c7319769dd6d47fcf6d361.bindTooltip(
+                `<div>
+                     中卫: 86
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2f60f2fc90e2c050b8a004fba8a966d1 = L.circleMarker(
+                [40.7686, 114.8868],
+                {"bubblingMouseEvents": true, "color": "#1a9850", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#1a9850", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 16.065529022259792, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_c7b519e90f28c34f15d975ce3858f556 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_7a3f37025a90d9f4d2bac21f7dc9d100 = $(`<div id="html_7a3f37025a90d9f4d2bac21f7dc9d100" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">张家口 (河北)</h4>             <b>综合评分</b>: 80.7 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.450/kWh<br>             <b>政策节点</b>: 20<br>             <b>气候散热</b>: 9/10<br>             <b>距需求</b>: 200 km         </div>         </div>`)[0];
+                popup_c7b519e90f28c34f15d975ce3858f556.setContent(html_7a3f37025a90d9f4d2bac21f7dc9d100);
+            
+        
+
+        circle_marker_2f60f2fc90e2c050b8a004fba8a966d1.bindPopup(popup_c7b519e90f28c34f15d975ce3858f556)
+        ;
+
+        
+    
+    
+            circle_marker_2f60f2fc90e2c050b8a004fba8a966d1.bindTooltip(
+                `<div>
+                     张家口: 81
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_73b24ee041c5324215698b4d451258e0 = L.circleMarker(
+                [35.734, 107.6438],
+                {"bubblingMouseEvents": true, "color": "#91cf60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91cf60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.850970343758807, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_549dcc39bd35932499a127e83db8aab7 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_0a5d6179af5f6b3a78d98f26f31c169c = $(`<div id="html_0a5d6179af5f6b3a78d98f26f31c169c" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">庆阳 (甘肃)</h4>             <b>综合评分</b>: 78.5 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.360/kWh<br>             <b>政策节点</b>: 20<br>             <b>气候散热</b>: 8/10<br>             <b>距需求</b>: 1100 km         </div>         </div>`)[0];
+                popup_549dcc39bd35932499a127e83db8aab7.setContent(html_0a5d6179af5f6b3a78d98f26f31c169c);
+            
+        
+
+        circle_marker_73b24ee041c5324215698b4d451258e0.bindPopup(popup_549dcc39bd35932499a127e83db8aab7)
+        ;
+
+        
+    
+    
+            circle_marker_73b24ee041c5324215698b4d451258e0.bindTooltip(
+                `<div>
+                     庆阳: 79
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_288f739187576d859701d3a55c9ec398 = L.circleMarker(
+                [26.4148, 106.6354],
+                {"bubblingMouseEvents": true, "color": "#91cf60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91cf60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.74315828402367, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_8225bd1b3b10dae087b8856ccbea9d92 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_cf18ec77dae69bc7b5199a2aa075ad32 = $(`<div id="html_cf18ec77dae69bc7b5199a2aa075ad32" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">贵安新区 (贵州)</h4>             <b>综合评分</b>: 77.4 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.350/kWh<br>             <b>政策节点</b>: 20<br>             <b>气候散热</b>: 7/10<br>             <b>距需求</b>: 1500 km         </div>         </div>`)[0];
+                popup_8225bd1b3b10dae087b8856ccbea9d92.setContent(html_cf18ec77dae69bc7b5199a2aa075ad32);
+            
+        
+
+        circle_marker_288f739187576d859701d3a55c9ec398.bindPopup(popup_8225bd1b3b10dae087b8856ccbea9d92)
+        ;
+
+        
+    
+    
+            circle_marker_288f739187576d859701d3a55c9ec398.bindTooltip(
+                `<div>
+                     贵安新区: 77
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6d2aac32b49180022f2d54be1d49131 = L.circleMarker(
+                [40.9941, 113.1404],
+                {"bubblingMouseEvents": true, "color": "#91cf60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91cf60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.523100697379544, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_2fd42be952ef097be3eb766c589917ac = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_2037941e4b521f5d296b59d2c0189ab8 = $(`<div id="html_2037941e4b521f5d296b59d2c0189ab8" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">乌兰察布 (内蒙古)</h4>             <b>综合评分</b>: 75.2 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.320/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 10/10<br>             <b>距需求</b>: 350 km         </div>         </div>`)[0];
+                popup_2fd42be952ef097be3eb766c589917ac.setContent(html_2037941e4b521f5d296b59d2c0189ab8);
+            
+        
+
+        circle_marker_e6d2aac32b49180022f2d54be1d49131.bindPopup(popup_2fd42be952ef097be3eb766c589917ac)
+        ;
+
+        
+    
+    
+            circle_marker_e6d2aac32b49180022f2d54be1d49131.bindTooltip(
+                `<div>
+                     乌兰察布: 75
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2e00853cd117a527aee9bb2f35a51315 = L.circleMarker(
+                [40.8414, 111.7519],
+                {"bubblingMouseEvents": true, "color": "#91cf60", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#91cf60", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.290204987320372, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_a3fca308b002712d0fb3e5ff841b488d = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_9d276b7117b65919d719984ed120aa61 = $(`<div id="html_9d276b7117b65919d719984ed120aa61" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">呼和浩特 (内蒙古)</h4>             <b>综合评分</b>: 72.9 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.320/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 10/10<br>             <b>距需求</b>: 600 km         </div>         </div>`)[0];
+                popup_a3fca308b002712d0fb3e5ff841b488d.setContent(html_9d276b7117b65919d719984ed120aa61);
+            
+        
+
+        circle_marker_2e00853cd117a527aee9bb2f35a51315.bindPopup(popup_a3fca308b002712d0fb3e5ff841b488d)
+        ;
+
+        
+    
+    
+            circle_marker_2e00853cd117a527aee9bb2f35a51315.bindTooltip(
+                `<div>
+                     呼和浩特: 73
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c37184c2c6b29d8a070ce036690681c3 = L.circleMarker(
+                [30.5728, 104.0668],
+                {"bubblingMouseEvents": true, "color": "#fee08b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.499903141730066, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_61f1c540a3a26ed1e0d0dd4018c83da6 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_679a26fea49b509a3b371a6558c26627 = $(`<div id="html_679a26fea49b509a3b371a6558c26627" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">天府新区 (四川)</h4>             <b>综合评分</b>: 65.0 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.380/kWh<br>             <b>政策节点</b>: 20<br>             <b>气候散热</b>: 5/10<br>             <b>距需求</b>: 1300 km         </div>         </div>`)[0];
+                popup_61f1c540a3a26ed1e0d0dd4018c83da6.setContent(html_679a26fea49b509a3b371a6558c26627);
+            
+        
+
+        circle_marker_c37184c2c6b29d8a070ce036690681c3.bindPopup(popup_61f1c540a3a26ed1e0d0dd4018c83da6)
+        ;
+
+        
+    
+    
+            circle_marker_c37184c2c6b29d8a070ce036690681c3.bindTooltip(
+                `<div>
+                     天府新区: 65
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a299122b305bf14ffa7f5ce88f7a61d = L.circleMarker(
+                [38.4872, 106.2309],
+                {"bubblingMouseEvents": true, "color": "#fee08b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.363790856579318, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_81977512dc170026d6e3da9b25f52317 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_6cc43295a43b29ed725f16ab33f23432 = $(`<div id="html_6cc43295a43b29ed725f16ab33f23432" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">银川 (宁夏)</h4>             <b>综合评分</b>: 63.6 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.330/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 9/10<br>             <b>距需求</b>: 1100 km         </div>         </div>`)[0];
+                popup_81977512dc170026d6e3da9b25f52317.setContent(html_6cc43295a43b29ed725f16ab33f23432);
+            
+        
+
+        circle_marker_0a299122b305bf14ffa7f5ce88f7a61d.bindPopup(popup_81977512dc170026d6e3da9b25f52317)
+        ;
+
+        
+    
+    
+            circle_marker_0a299122b305bf14ffa7f5ce88f7a61d.bindTooltip(
+                `<div>
+                     银川: 64
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da67fda99736f3b5b5bcd35146741e92 = L.circleMarker(
+                [36.6232, 101.7804],
+                {"bubblingMouseEvents": true, "color": "#fee08b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.174133558748943, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_3e46f095b1c315353a62e1fc2aa826ad = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_3e02b30d147ac430cbcbb2f9d36967d9 = $(`<div id="html_3e02b30d147ac430cbcbb2f9d36967d9" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">西宁 (青海)</h4>             <b>综合评分</b>: 61.7 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.320/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 10/10<br>             <b>距需求</b>: 1600 km         </div>         </div>`)[0];
+                popup_3e46f095b1c315353a62e1fc2aa826ad.setContent(html_3e02b30d147ac430cbcbb2f9d36967d9);
+            
+        
+
+        circle_marker_da67fda99736f3b5b5bcd35146741e92.bindPopup(popup_3e46f095b1c315353a62e1fc2aa826ad)
+        ;
+
+        
+    
+    
+            circle_marker_da67fda99736f3b5b5bcd35146741e92.bindTooltip(
+                `<div>
+                     西宁: 62
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_51f0c2c111e20ae8915250622b0e3494 = L.circleMarker(
+                [24.8014, 113.5917],
+                {"bubblingMouseEvents": true, "color": "#fee08b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.839659939419553, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_3ad6525bda0e42eb47beaa10e7dc214e = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_c3d48ab4d3d6754ef43469040fb1f3c0 = $(`<div id="html_c3d48ab4d3d6754ef43469040fb1f3c0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">韶关 (广东)</h4>             <b>综合评分</b>: 58.4 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.530/kWh<br>             <b>政策节点</b>: 20<br>             <b>气候散热</b>: 3/10<br>             <b>距需求</b>: 250 km         </div>         </div>`)[0];
+                popup_3ad6525bda0e42eb47beaa10e7dc214e.setContent(html_c3d48ab4d3d6754ef43469040fb1f3c0);
+            
+        
+
+        circle_marker_51f0c2c111e20ae8915250622b0e3494.bindPopup(popup_3ad6525bda0e42eb47beaa10e7dc214e)
+        ;
+
+        
+    
+    
+            circle_marker_51f0c2c111e20ae8915250622b0e3494.bindTooltip(
+                `<div>
+                     韶关: 58
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b79b393c355c332babeec316676fda51 = L.circleMarker(
+                [31.3526, 118.4331],
+                {"bubblingMouseEvents": true, "color": "#fee08b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.43388102282333, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_5a5fc987af8d67db5beff75f0269ebbd = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_8d31b31597ca25e102bf03c30af99e5c = $(`<div id="html_8d31b31597ca25e102bf03c30af99e5c" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">芜湖 (安徽)</h4>             <b>综合评分</b>: 54.3 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.460/kWh<br>             <b>政策节点</b>: 10<br>             <b>气候散热</b>: 4/10<br>             <b>距需求</b>: 300 km         </div>         </div>`)[0];
+                popup_5a5fc987af8d67db5beff75f0269ebbd.setContent(html_8d31b31597ca25e102bf03c30af99e5c);
+            
+        
+
+        circle_marker_b79b393c355c332babeec316676fda51.bindPopup(popup_5a5fc987af8d67db5beff75f0269ebbd)
+        ;
+
+        
+    
+    
+            circle_marker_b79b393c355c332babeec316676fda51.bindTooltip(
+                `<div>
+                     芜湖: 54
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3cea65df035f4393dc73d7f8e5a1eeda = L.circleMarker(
+                [36.0611, 103.8343],
+                {"bubblingMouseEvents": true, "color": "#fee08b", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fee08b", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.167978655959425, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_973845e2621bf3aa7a572655748feeff = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_6ecba587290c5cdc23b03f927d70d4d5 = $(`<div id="html_6ecba587290c5cdc23b03f927d70d4d5" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">兰州 (甘肃)</h4>             <b>综合评分</b>: 51.7 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.360/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 7/10<br>             <b>距需求</b>: 1300 km         </div>         </div>`)[0];
+                popup_973845e2621bf3aa7a572655748feeff.setContent(html_6ecba587290c5cdc23b03f927d70d4d5);
+            
+        
+
+        circle_marker_3cea65df035f4393dc73d7f8e5a1eeda.bindPopup(popup_973845e2621bf3aa7a572655748feeff)
+        ;
+
+        
+    
+    
+            circle_marker_3cea65df035f4393dc73d7f8e5a1eeda.bindTooltip(
+                `<div>
+                     兰州: 52
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2c7a2f870583b92a7890a22033b00729 = L.circleMarker(
+                [39.5384, 116.6837],
+                {"bubblingMouseEvents": true, "color": "#fc8d59", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc8d59", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.814289236404619, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_ea168abc005bc55c00fb6c9396ccf074 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_33d707c3b1a4236e96d3320a97de6b26 = $(`<div id="html_33d707c3b1a4236e96d3320a97de6b26" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">廊坊 (河北)</h4>             <b>综合评分</b>: 48.1 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.450/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 5/10<br>             <b>距需求</b>: 40 km         </div>         </div>`)[0];
+                popup_ea168abc005bc55c00fb6c9396ccf074.setContent(html_33d707c3b1a4236e96d3320a97de6b26);
+            
+        
+
+        circle_marker_2c7a2f870583b92a7890a22033b00729.bindPopup(popup_ea168abc005bc55c00fb6c9396ccf074)
+        ;
+
+        
+    
+    
+            circle_marker_2c7a2f870583b92a7890a22033b00729.bindTooltip(
+                `<div>
+                     廊坊: 48
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34518aba504bcb114aa2fa98dd623ffa = L.circleMarker(
+                [29.563, 106.5516],
+                {"bubblingMouseEvents": true, "color": "#fc8d59", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc8d59", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.601419413919412, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_f55fed144d14579df6e6cafd2a47e747 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_d08d669731a5d347b2b778292f1a7a15 = $(`<div id="html_d08d669731a5d347b2b778292f1a7a15" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">两江新区 (重庆)</h4>             <b>综合评分</b>: 46.0 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.450/kWh<br>             <b>政策节点</b>: 10<br>             <b>气候散热</b>: 5/10<br>             <b>距需求</b>: 1400 km         </div>         </div>`)[0];
+                popup_f55fed144d14579df6e6cafd2a47e747.setContent(html_d08d669731a5d347b2b778292f1a7a15);
+            
+        
+
+        circle_marker_34518aba504bcb114aa2fa98dd623ffa.bindPopup(popup_f55fed144d14579df6e6cafd2a47e747)
+        ;
+
+        
+    
+    
+            circle_marker_34518aba504bcb114aa2fa98dd623ffa.bindTooltip(
+                `<div>
+                     两江新区: 46
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3adabfc3c78e2ae2b1d1b8424ee5a6dc = L.circleMarker(
+                [31.2304, 121.4737],
+                {"bubblingMouseEvents": true, "color": "#fc8d59", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc8d59", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.47386587771203, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_aed783541800523b7f2ca78cbdef0cee = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_cd89f8e249dc7d68ba0c7a95f1964798 = $(`<div id="html_cd89f8e249dc7d68ba0c7a95f1964798" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">上海 (上海)</h4>             <b>综合评分</b>: 44.7 / 100<br>             <b>城市等级</b>: T1<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.550/kWh<br>             <b>政策节点</b>: 20<br>             <b>气候散热</b>: 3/10<br>             <b>距需求</b>: 0 km         </div>         </div>`)[0];
+                popup_aed783541800523b7f2ca78cbdef0cee.setContent(html_cd89f8e249dc7d68ba0c7a95f1964798);
+            
+        
+
+        circle_marker_3adabfc3c78e2ae2b1d1b8424ee5a6dc.bindPopup(popup_aed783541800523b7f2ca78cbdef0cee)
+        ;
+
+        
+    
+    
+            circle_marker_3adabfc3c78e2ae2b1d1b8424ee5a6dc.bindTooltip(
+                `<div>
+                     上海: 45
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_208c8dbe5f18240764808315db25172d = L.circleMarker(
+                [31.15, 121.1247],
+                {"bubblingMouseEvents": true, "color": "#fc8d59", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc8d59", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.058347421808959, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_2daeffd688cc13c40fd96c3e6148d7eb = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_3e361ddc686e4f057d428b18a4633e4e = $(`<div id="html_3e361ddc686e4f057d428b18a4633e4e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">青浦 (上海)</h4>             <b>综合评分</b>: 40.6 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.550/kWh<br>             <b>政策节点</b>: 10<br>             <b>气候散热</b>: 4/10<br>             <b>距需求</b>: 80 km         </div>         </div>`)[0];
+                popup_2daeffd688cc13c40fd96c3e6148d7eb.setContent(html_3e361ddc686e4f057d428b18a4633e4e);
+            
+        
+
+        circle_marker_208c8dbe5f18240764808315db25172d.bindPopup(popup_2daeffd688cc13c40fd96c3e6148d7eb)
+        ;
+
+        
+    
+    
+            circle_marker_208c8dbe5f18240764808315db25172d.bindTooltip(
+                `<div>
+                     青浦: 41
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f50e48b82a0a69444b59fd03690bdf25 = L.circleMarker(
+                [31.9802, 120.8943],
+                {"bubblingMouseEvents": true, "color": "#fc8d59", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fc8d59", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.018856544096927, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_4a6925c0f863f123819780cddb0a80a2 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_bf6ca66a60a9fc39a0ac13b00069b8f9 = $(`<div id="html_bf6ca66a60a9fc39a0ac13b00069b8f9" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">南通 (江苏)</h4>             <b>综合评分</b>: 40.2 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.510/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 5/10<br>             <b>距需求</b>: 150 km         </div>         </div>`)[0];
+                popup_4a6925c0f863f123819780cddb0a80a2.setContent(html_bf6ca66a60a9fc39a0ac13b00069b8f9);
+            
+        
+
+        circle_marker_f50e48b82a0a69444b59fd03690bdf25.bindPopup(popup_4a6925c0f863f123819780cddb0a80a2)
+        ;
+
+        
+    
+    
+            circle_marker_f50e48b82a0a69444b59fd03690bdf25.bindTooltip(
+                `<div>
+                     南通: 40
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0f82055123a5152ac9f8a98be8b1e7b0 = L.circleMarker(
+                [31.2989, 120.5853],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.483454846435615, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_16339a742f2b6cf6f2024efde31a422e = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_f938f35cba3817132486a735e8c67bad = $(`<div id="html_f938f35cba3817132486a735e8c67bad" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">苏州 (江苏)</h4>             <b>综合评分</b>: 34.8 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.510/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 3/10<br>             <b>距需求</b>: 100 km         </div>         </div>`)[0];
+                popup_16339a742f2b6cf6f2024efde31a422e.setContent(html_f938f35cba3817132486a735e8c67bad);
+            
+        
+
+        circle_marker_0f82055123a5152ac9f8a98be8b1e7b0.bindPopup(popup_16339a742f2b6cf6f2024efde31a422e)
+        ;
+
+        
+    
+    
+            circle_marker_0f82055123a5152ac9f8a98be8b1e7b0.bindTooltip(
+                `<div>
+                     苏州: 35
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_49cdff85fa2392d4b0e9c6987029e946 = L.circleMarker(
+                [23.6817, 113.0561],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.376844709777401, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_0c5b9090bbc4ce86ed8333216a039da8 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_c1d2bda770eaa7875bbecfd199b7b390 = $(`<div id="html_c1d2bda770eaa7875bbecfd199b7b390" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">清远 (广东)</h4>             <b>综合评分</b>: 33.8 / 100<br>             <b>城市等级</b>: T3<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.530/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 2/10<br>             <b>距需求</b>: 150 km         </div>         </div>`)[0];
+                popup_0c5b9090bbc4ce86ed8333216a039da8.setContent(html_c1d2bda770eaa7875bbecfd199b7b390);
+            
+        
+
+        circle_marker_49cdff85fa2392d4b0e9c6987029e946.bindPopup(popup_0c5b9090bbc4ce86ed8333216a039da8)
+        ;
+
+        
+    
+    
+            circle_marker_49cdff85fa2392d4b0e9c6987029e946.bindTooltip(
+                `<div>
+                     清远: 34
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_42d41d2591256b7eb6eae9f1a5bb5566 = L.circleMarker(
+                [32.0603, 118.7969],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.372415645252183, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_3b21f7bcc958b8a6bf987572806d3367 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_efd72b963bdf4f187d3fe29f6cac388e = $(`<div id="html_efd72b963bdf4f187d3fe29f6cac388e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">南京 (江苏)</h4>             <b>综合评分</b>: 33.7 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.510/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 3/10<br>             <b>距需求</b>: 250 km         </div>         </div>`)[0];
+                popup_3b21f7bcc958b8a6bf987572806d3367.setContent(html_efd72b963bdf4f187d3fe29f6cac388e);
+            
+        
+
+        circle_marker_42d41d2591256b7eb6eae9f1a5bb5566.bindPopup(popup_3b21f7bcc958b8a6bf987572806d3367)
+        ;
+
+        
+    
+    
+            circle_marker_42d41d2591256b7eb6eae9f1a5bb5566.bindTooltip(
+                `<div>
+                     南京: 34
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e0a63597e0f3bc67e3a7811939de5a53 = L.circleMarker(
+                [30.2741, 120.1551],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.263484432234431, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_cf19449ad8a16b95a21302463d3de907 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_5ab35437d2c154ecbe1b725933e50075 = $(`<div id="html_5ab35437d2c154ecbe1b725933e50075" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">杭州 (浙江)</h4>             <b>综合评分</b>: 32.6 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.520/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 3/10<br>             <b>距需求</b>: 180 km         </div>         </div>`)[0];
+                popup_cf19449ad8a16b95a21302463d3de907.setContent(html_5ab35437d2c154ecbe1b725933e50075);
+            
+        
+
+        circle_marker_e0a63597e0f3bc67e3a7811939de5a53.bindPopup(popup_cf19449ad8a16b95a21302463d3de907)
+        ;
+
+        
+    
+    
+            circle_marker_e0a63597e0f3bc67e3a7811939de5a53.bindTooltip(
+                `<div>
+                     杭州: 33
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_dba229e3ce14a5e8fe0a1c76d9575a4e = L.circleMarker(
+                [23.1117, 114.4161],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.231424344885882, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_80cdd6dd30bfa2b0e6d95ff0f35e9b2e = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_ee7f6b86a0e3a37d8ab5adf570ca90a0 = $(`<div id="html_ee7f6b86a0e3a37d8ab5adf570ca90a0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">惠州 (广东)</h4>             <b>综合评分</b>: 32.3 / 100<br>             <b>城市等级</b>: T2<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.530/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 1/10<br>             <b>距需求</b>: 80 km         </div>         </div>`)[0];
+                popup_80cdd6dd30bfa2b0e6d95ff0f35e9b2e.setContent(html_ee7f6b86a0e3a37d8ab5adf570ca90a0);
+            
+        
+
+        circle_marker_dba229e3ce14a5e8fe0a1c76d9575a4e.bindPopup(popup_80cdd6dd30bfa2b0e6d95ff0f35e9b2e)
+        ;
+
+        
+    
+    
+            circle_marker_dba229e3ce14a5e8fe0a1c76d9575a4e.bindTooltip(
+                `<div>
+                     惠州: 32
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e363a97fed8c2e0104829ab8efbf30e = L.circleMarker(
+                [23.1291, 113.2644],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.811073541842772, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_9550dd386064d7a2fdaa090c7297ac5e = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_54987ed977dc2898bd26605c9bc34c0c = $(`<div id="html_54987ed977dc2898bd26605c9bc34c0c" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">广州 (广东)</h4>             <b>综合评分</b>: 28.1 / 100<br>             <b>城市等级</b>: T1<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.530/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 1/10<br>             <b>距需求</b>: 0 km         </div>         </div>`)[0];
+                popup_9550dd386064d7a2fdaa090c7297ac5e.setContent(html_54987ed977dc2898bd26605c9bc34c0c);
+            
+        
+
+        circle_marker_6e363a97fed8c2e0104829ab8efbf30e.bindPopup(popup_9550dd386064d7a2fdaa090c7297ac5e)
+        ;
+
+        
+    
+    
+            circle_marker_6e363a97fed8c2e0104829ab8efbf30e.bindTooltip(
+                `<div>
+                     广州: 28
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_220780b4ab74d484b74a19d503a7e981 = L.circleMarker(
+                [39.9042, 116.4074],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.520216962524655, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_e2199bd9c3a97ea769270431def4af1a = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_6fc65d13109d64dfc11dda39e9ba1e91 = $(`<div id="html_6fc65d13109d64dfc11dda39e9ba1e91" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">北京 (北京)</h4>             <b>综合评分</b>: 25.2 / 100<br>             <b>城市等级</b>: T1<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.580/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 5/10<br>             <b>距需求</b>: 0 km         </div>         </div>`)[0];
+                popup_e2199bd9c3a97ea769270431def4af1a.setContent(html_6fc65d13109d64dfc11dda39e9ba1e91);
+            
+        
+
+        circle_marker_220780b4ab74d484b74a19d503a7e981.bindPopup(popup_e2199bd9c3a97ea769270431def4af1a)
+        ;
+
+        
+    
+    
+            circle_marker_220780b4ab74d484b74a19d503a7e981.bindTooltip(
+                `<div>
+                     北京: 25
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f27f6a65cc03d2f30eb91f6c3ccc95ba = L.circleMarker(
+                [22.5431, 114.0579],
+                {"bubblingMouseEvents": true, "color": "#d73027", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d73027", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.076923076923077, "stroke": true, "weight": 3}
+            ).addTo(map_e6f864789e04e0cd21afd202d12c1acf);
+        
+    
+        var popup_ff6e996c55cfd5d517fdf5322b149d18 = L.popup({
+  "maxWidth": 280,
+});
+
+        
+            
+                var html_2bde749c9c437ae979a51a88e21eba15 = $(`<div id="html_2bde749c9c437ae979a51a88e21eba15" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial; font-size: 12px; min-width: 220px;">             <h4 style="margin: 0 0 6px 0;">深圳 (广东)</h4>             <b>综合评分</b>: 20.8 / 100<br>             <b>城市等级</b>: T1<br>             <hr style="margin: 5px 0;">             <b>电价</b>: ¥0.530/kWh<br>             <b>政策节点</b>: 0<br>             <b>气候散热</b>: 1/10<br>             <b>距需求</b>: 0 km         </div>         </div>`)[0];
+                popup_ff6e996c55cfd5d517fdf5322b149d18.setContent(html_2bde749c9c437ae979a51a88e21eba15);
+            
+        
+
+        circle_marker_f27f6a65cc03d2f30eb91f6c3ccc95ba.bindPopup(popup_ff6e996c55cfd5d517fdf5322b149d18)
+        ;
+
+        
+    
+    
+            circle_marker_f27f6a65cc03d2f30eb91f6c3ccc95ba.bindTooltip(
+                `<div>
+                     深圳: 21
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
